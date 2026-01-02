@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shibaram Sahoo - Banking & Finance Professional</title>
+    <style>
+        :root {
+            --color-primary: #1a6b7a;
+            --color-primary-light: #2d8aa6;
+            --color-secondary: #f4e5d3;
+            --color-text: #1f2121;
+            --color-text-light: #626c7c;
+            --color-bg: #fafbf9;
+            --color-white: #ffffff;
+            --color-accent: #e67e22;
+            --spacing-base: 1rem;
+            --spacing-lg: 2rem;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            background: var(--color-white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-base) var(--spacing-lg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+        }
+
+        nav a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--color-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: var(--color-white);
+            padding: 4rem var(--spacing-lg);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-photo {
+            flex-shrink: 0;
+        }
+
+        .hero-photo img {
+            width: 180px;
+            height: 220px;
+            border-radius: 1rem;
+            border: 4px solid rgba(255,255,255,0.3);
+            object-fit: cover;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+
+        .hero-photo img:hover {
+            transform: scale(1.05);
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-base);
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.95;
+        }
+
+        .hero-contact {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            flex-wrap: wrap;
+            margin-top: var(--spacing-lg);
+        }
+
+        .hero-contact a, .hero-contact span {
+            background: rgba(255,255,255,0.2);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            color: var(--color-white);
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .hero-contact a:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem var(--spacing-lg);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        section h2:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--color-accent);
+            margin: 1rem auto 0;
+        }
+
+        /* Education */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .edu-card {
+            background: var(--color-white);
+            padding: var(--spacing-lg);
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--color-primary);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .edu-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .edu-card h3 {
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-card .year {
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Experience */
+        .experience-timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .exp-item {
+            background: var(--color-white);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--color-accent);
+        }
+
+        .exp-item h3 {
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-item .company {
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-item .duration {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .exp-item ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .exp-item ul li {
+            color: var(--color-text-light);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .exp-item ul li:before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .skill-category {
+            background: var(--color-white);
+            padding: var(--spacing-lg);
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .skill-category h3 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--color-secondary);
+            padding-bottom: 0.5rem;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: var(--color-secondary);
+            color: var(--color-text);
+            padding: 0.5rem 1rem;
+            margin: 0.25rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* About */
+        .about-section {
+            background: var(--color-white);
+            padding: var(--spacing-lg);
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .about-item {
+            padding: var(--spacing-base);
+        }
+
+        .about-item strong {
+            color: var(--color-primary);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-primary);
+            color: var(--color-white);
+            text-align: center;
+            padding: var(--spacing-lg);
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--color-secondary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: var(--spacing-base);
+                display: none;
+            }
+
+            .hero-content {
+                flex-direction: column;
+            }
+
+            .hero-photo img {
+                width: 150px;
+                height: 200px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 2rem var(--spacing-base);
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-contact {
+                flex-direction: column;
+            }
+
+            .hero-contact a, .hero-contact span {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">Shibaram Sahoo</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-photo">
+                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/70f44f58-96f6-430b-8a76-cf8089b9f3bf" alt="Shibaram Sahoo Professional Photo">
+            </div>
+            <div class="hero-text">
+                <h1>Shibaram Sahoo</h1>
+                <p>Senior Banking & Finance Professional</p>
+                <p style="font-size: 1rem; margin-top: 1rem;">Operations Manager | Credit Operations Expert | 15+ Years Experience</p>
+                <div class="hero-contact">
+                    <a href="tel:+919337518011">📞 +91 9337518011</a>
+                    <a href="mailto:shibaram94@gmail.com">✉️ shibaram94@gmail.com</a>
+                    <span>📍 Bhubaneswar, Odisha</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <h2>About Me</h2>
+        <div class="about-section">
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+                Experienced Banking & Finance Professional with 15+ years of progressive experience in operations management, credit operations, and business lending. Currently serving as Senior Manager at Annapurna Finance Pvt Ltd with expertise in loan portfolio management, compliance, and team leadership.
+            </p>
+            <div class="about-grid">
+                <div class="about-item">
+                    <strong>Date of Birth:</strong>
+                    <span>9th July 1987</span>
+                </div>
+                <div class="about-item">
+                    <strong>Marital Status:</strong>
+                    <span>Married</span>
+                </div>
+                <div class="about-item">
+                    <strong>Location:</strong>
+                    <span>Bhubaneswar, Odisha</span>
+                </div>
+                <div class="about-item">
+                    <strong>Category:</strong>
+                    <span>General</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="container">
+        <h2>Education</h2>
+        <div class="education-grid">
+            <div class="edu-card">
+                <h3>MBA in Agri Business Management</h3>
+                <p style="color: var(--color-text-light); margin-bottom: 0.5rem;">Centre of Agri Business Management</p>
+                <p style="color: var(--color-text-light); margin-bottom: 0.5rem;">Odisha University of Agriculture & Technology (OUAT)</p>
+                <div class="year">2011 | 1st Division</div>
+                <p>Percentage: 79.20%</p>
+            </div>
+            <div class="edu-card">
+                <h3>BSc in Agriculture</h3>
+                <p style="color: var(--color-text-light); margin-bottom: 0.5rem;">College of Agriculture</p>
+                <p style="color: var(--color-text-light); margin-bottom: 0.5rem;">Odisha University of Agriculture & Technology (OUAT)</p>
+                <div class="year">2009 | 1st Division</div>
+                <p>Percentage: 70%</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="container">
+        <h2>Professional Experience</h2>
+        <div class="experience-timeline">
+            <div class="exp-item">
+                <h3>Senior Manager - IT Bridge &amp; Business Liaison</h3>
+                <p class="company">Annapurna Finance Pvt Ltd</p>
+                <p class="duration">Present</p>
+                <ul>
+                    <li>Act as strategic bridge between IT Department and line departments (Sales, Ops, Credit, Audit, Legal, Collection, Risk)</li>
+                    <li>Translate technical requirements from business teams into actionable IT initiatives</li>
+                    <li>Coordinate cross-functional projects involving system implementations and process automation</li>
+                    <li>Facilitate communication between IT and stakeholders to ensure alignment on system functionality</li>
+                    <li>Manage system-related issues and escalations from operational departments</li>
+                    <li>Support business process optimization through technology solutions and process improvement</li>
+                    <li>Ensure IT solutions meet compliance requirements across audit, legal, and risk functions</li>
+                </ul>
+            </div>
+
+            <div class="exp-item">
+                <h3>Manager - Team Lead Credit Operations</h3>
+                <p class="company">DCB Bank Ltd</p>
+                <p class="duration">2018 - 2021</p>
+                <ul>
+                    <li>Managed and supervised operational activities and team personnel</li>
+                    <li>Coordinated between branches, business, and credit teams</li>
+                    <li>Authorized fund release to customers and ensured compliance</li>
+                    <li>Managed diverse loan portfolios (Agri-KCC, SME, Retail Mortgage, Auto, Microfinance)</li>
+                    <li>Trained team members on documentation and system entry procedures</li>
+                </ul>
+            </div>
+
+            <div class="exp-item">
+                <h3>Chief Manager - Business Banking Group</h3>
+                <p class="company">IndusInd Bank</p>
+                <p class="duration">2017 - 2018</p>
+                <ul>
+                    <li>Ensured portfolio health and managed delinquency issues</li>
+                    <li>Handled pre and post-sanction documentation</li>
+                    <li>Sourced Business Loans and conducted field inspections</li>
+                    <li>Educated branch officials about various loan products</li>
+                    <li>Managed customer queries and timely collection of payments</li>
+                </ul>
+            </div>
+
+            <div class="exp-item">
+                <h3>Manager - Sales Manager in EEG</h3>
+                <p class="company">Axis Bank Ltd</p>
+                <p class="duration">2015 - 2017</p>
+                <ul>
+                    <li>Managed team of Relationship Managers driving SME loan business</li>
+                    <li>Conducted sales training to execute sourcing initiatives</li>
+                    <li>Coordinated with branch leaders to generate monthly targets</li>
+                    <li>Resolved operational and technical issues across branches</li>
+                </ul>
+            </div>
+
+            <div class="exp-item">
+                <h3>Deputy Manager - Area Operations Manager</h3>
+                <p class="company">Axis Bank Ltd</p>
+                <p class="duration">2013 - 2015</p>
+                <ul>
+                    <li>Managed accounts under B2C, B2B, Commodity Loan &amp; Tractor Loan</li>
+                    <li>Handled loan documentation, disbursement, and account monitoring</li>
+                    <li>Ensured portfolio health and managed delinquency</li>
+                    <li>Documentation of internal controls and monitoring</li>
+                </ul>
+            </div>
+
+            <div class="exp-item">
+                <h3>Assistant Manager - Branch Operations Officer</h3>
+                <p class="company">Axis Bank Ltd</p>
+                <p class="duration">2011 - 2013</p>
+                <ul>
+                    <li>Managed Crop Production Loan, Farm Development Loan &amp; Commodity Loan</li>
+                    <li>Sourced loans and conducted field visits for verification</li>
+                    <li>Ensured portfolio health and handled delinquency management</li>
+                    <li>Regular inspection of business units and collateral properties</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container">
+        <h2>Skills &amp; Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Product Knowledge</h3>
+                <div>
+                    <span class="skill-tag">Crop Production Loan</span>
+                    <span class="skill-tag">Farm Development Loan</span>
+                    <span class="skill-tag">Tractor Loan</span>
+                    <span class="skill-tag">Commodity Loan</span>
+                    <span class="skill-tag">Working Capital</span>
+                    <span class="skill-tag">Mortgage Loan</span>
+                    <span class="skill-tag">Auto Loan</span>
+                    <span class="skill-tag">Micro Finance</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Banking &amp; Operations</h3>
+                <div>
+                    <span class="skill-tag">Credit Operations</span>
+                    <span class="skill-tag">Loan Portfolio Management</span>
+                    <span class="skill-tag">Risk Management</span>
+                    <span class="skill-tag">Compliance Management</span>
+                    <span class="skill-tag">Team Leadership</span>
+                    <span class="skill-tag">Account Monitoring</span>
+                    <span class="skill-tag">Collection Management</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>IT &amp; Systems</h3>
+                <div>
+                    <span class="skill-tag">Finacle</span>
+                    <span class="skill-tag">Fincomm</span>
+                    <span class="skill-tag">Finnone (CAS &amp; LMS)</span>
+                    <span class="skill-tag">LOS Software</span>
+                    <span class="skill-tag">CIBIL</span>
+                    <span class="skill-tag">CERSAI</span>
+                    <span class="skill-tag">MS Office</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Other Interests</h3>
+                <div>
+                    <span class="skill-tag">Reading</span>
+                    <span class="skill-tag">Music</span>
+                    <span class="skill-tag">Cooking</span>
+                    <span class="skill-tag">Social Work (NSS)</span>
+                    <span class="skill-tag">Blood Donation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <h2>Get In Touch</h2>
+        <div class="about-section" style="text-align: center;">
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+                I'm always interested in hearing about new opportunities and challenges in banking and finance. Feel free to reach out!
+            </p>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;">
+                <a href="tel:+919337518011" style="background: var(--color-primary); color: white; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; transition: background 0.3s;">📞 Call Now</a>
+                <a href="mailto:shibaram94@gmail.com" style="background: var(--color-accent); color: white; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; transition: background 0.3s;">✉️ Send Email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Shibaram Sahoo. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Based in Bhubaneswar, Odisha | Banking & Finance Professional</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
